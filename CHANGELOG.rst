@@ -18,6 +18,7 @@ Fixed
 
   In StackStorm v3.0.0, this variable was inadvertently removed from the context used by Mistral
   workflows. (bug fix) #4650 #4656
+* Remove policy-delayed status to avoid bouncing between delayed statuses. (bug fix) #4655
 
 3.0.0 - April 18, 2019
 ----------------------
