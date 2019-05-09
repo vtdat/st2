@@ -499,7 +499,13 @@ def register_opts(ignore_errors=False):
             help='URL Mistral uses to talk back to the API.'
                  'If not provided it defaults to public API URL. '
                  'Note: This needs to be a base URL without API '
-                 'version (e.g. http://127.0.0.1:9101)')
+                 'version (e.g. http://127.0.0.1:9101)'),
+        cfg.StrOpt(
+            'project_domain_name', default='Default',
+            help='Project domain name'),
+        cfg.StrOpt(
+            'user_domain_name', defeault='Default',
+            help='User domain name')
     ]
 
     do_register_opts(mistral_opts, group='mistral', ignore_errors=ignore_errors)
