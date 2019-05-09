@@ -271,9 +271,15 @@ def retry_on_exceptions(exc):
     LOG.warning('Determining if %s should be retried...', type(exc))
 
     is_connection_error = isinstance(exc, requests.exceptions.ConnectionError)
-    is_duplicate_error = isinstance(exc, APIException) and 'Duplicate' in exc.error_message
-    is_messaging_error = isinstance(exc, APIException) and 'MessagingTimeout' in exc.error_message
-    retrying = is_connection_error or is_duplicate_error or is_messaging_error
+    retrying = is_connection_error
+
+    if exc.error_message is not None:
+        is_duplicate_error = isinstance(exc, APIException) and \
+            'Duplicate' in exc.error_message
+        is_messaging_error = isinstance(exc, APIException) and \
+            'MessagingTimeout' in exc.error_message
+        retrying = is_connection_error or is_duplicate_error \
+            or is_messaging_error
 
     if retrying:
         LOG.warning('Retrying Mistral API invocation on exception type %s.', type(exc))
