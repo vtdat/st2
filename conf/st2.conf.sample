@@ -225,6 +225,10 @@ keystone_project_name = None
 keystone_password = None
 # Auth endpoint for Keystone.
 keystone_auth_url = None
+# Project domain name.
+project_domain_name = 'Default'
+# User domain name.
+user_domain_name = 'Default'
 # Optional certificate to validate endpoint.
 cacert = None
 # v2 API root endpoint.

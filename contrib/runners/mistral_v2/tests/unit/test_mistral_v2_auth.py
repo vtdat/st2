@@ -260,7 +260,9 @@ class MistralAuthTest(ExecutionDbTestCase):
             'username': cfg.CONF.mistral.keystone_username,
             'api_key': cfg.CONF.mistral.keystone_password,
             'insecure': False,
-            'cacert': None
+            'cacert': None,
+            'project_domain_name': cfg.CONF.mistral.project_domain_name,
+            'user_domain_name': cfg.CONF.mistral.user_domain_name
         }
 
         keystone.KeystoneAuthHandler.authenticate.assert_called_with(auth_req, session=None)
