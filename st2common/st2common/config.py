@@ -504,7 +504,7 @@ def register_opts(ignore_errors=False):
             'project_domain_name', default='Default',
             help='Project domain name'),
         cfg.StrOpt(
-            'user_domain_name', defeault='Default',
+            'user_domain_name', default='Default',
             help='User domain name')
     ]
 
