@@ -79,7 +79,9 @@ class MistralResultsQuerier(Querier):
             project_name=cfg.CONF.mistral.keystone_project_name,
             auth_url=cfg.CONF.mistral.keystone_auth_url,
             cacert=cfg.CONF.mistral.cacert,
-            insecure=cfg.CONF.mistral.insecure)
+            insecure=cfg.CONF.mistral.insecure,
+            project_domain_name=cfg.CONF.mistral.project_domain_name,
+            user_domain_name=cfg.CONF.mistral.user_domain_name)
         self._jitter = cfg.CONF.mistral.jitter_interval
 
     @retrying.retry(
