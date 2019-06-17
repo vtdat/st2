@@ -273,7 +273,7 @@ def retry_on_exceptions(exc):
     is_connection_error = isinstance(exc, requests.exceptions.ConnectionError)
     retrying = is_connection_error
 
-    if hasattr(exc, error_message) and exc.error_message is not None:
+    if hasattr(exc, 'error_message') and exc.error_message is not None:
         is_duplicate_error = isinstance(exc, APIException) and \
             'Duplicate' in exc.error_message
         is_messaging_error = isinstance(exc, APIException) and \
